@@ -8,31 +8,14 @@ var uuid = '00000000000000000000000000000000';
 Bleacon.startScanning(uuid); // scan for any bleacons
 
 Bleacon.on('discover', function(beacon) {
-  var time = new Date();
   if (beacon.uuid !== undefined) {
-      var uuid = beacon.uuid + "";
-      var major = beacon.major;
-      var minor = beacon.minor;
-      var dist = beacon.accuracy;
-      // var beaconid = bleacon.id;
-      var data = {
-          'time': time,
-          'uuid': uuid,
-          'major': major,
-          'minor': minor,
-          'dist':dist
-      };
-      // fs.appendFile('web/beacon.log', JSON.stringify(data, null));
-  }
+    var data = parseBeacon(beacon);
+    var time = new Date();
+    beacons.push(data);
 
-  //既知のBeaconは古い情報を削除
-  // beacons.forEach(function(e, i, a) {
-  //     if (e.id == beacon.id) {
-  //         beacons.splice( i, 1 ) ;
-  //     }
-  // })
-  // console.log(beacon);
-  beacons.push(beacon);
+    // Todo log
+
+  }
 
 });
 
@@ -62,21 +45,34 @@ callLater(selectBeacon);
 function makeJson(beacon) {
   var time = Date();
     if (beacon.uuid !== undefined) {
-        var uuid = beacon.uuid;
-        var major = beacon.major;
-        var minor = beacon.minor;
-
-        var data = {
-            'time': time,
-            'uuid': uuid,
-            'major': major,
-            'minor': minor
-        };
-        console.log(data);
-        // var postData = JSON.stringify(data, null, '    ');
-        // requestData(postData);
-        fs.writeFile('web/data.json', JSON.stringify(data, null, '    '));
+        console.log(beacon);
+        fs.writeFile('web/data.json', JSON.stringify(beacon, null, '    '));
         selectedBeacon = null;
         beacons = [];
     }
+}
+
+function parseBeacon(beacon) {
+  var data = {};
+  var major_prefix = ( '000000000000000' + beacon.major.toString(2) ).slice( -16 );
+  var minor_prefix = ( '000000000000000' + beacon.minor.toString(2) ).slice( -16 );
+
+  var gender_prefix = major_prefix.substr(0,2);
+  var age_prefix = major_prefix.substr(2,7);
+  var hobby_major = major_prefix.substr(9,7);
+  var hobby_minor = minor_prefix;
+
+  var hobby_prefix = hobby_major + hobby_minor;
+
+  data.time = Date();
+  data.uuid = beacon.uuid;
+  data.gender = parseInt(gender_prefix,2);
+  data.age = parseInt(age_prefix,2);
+  data.distance = beacon.accuracy;
+  data.hobby = []
+  for (var i = 0; i < hobby_prefix.length; i++) {
+    data.hobby.push(hobby_prefix.charAt(i));
+  }
+
+  return data;
 }
