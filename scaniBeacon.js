@@ -47,7 +47,7 @@ callLater(selectBeacon);
 function makeJson(beacon) {
   console.log('makejson');
   var time = Date();
-    if (beacon.uuid !== undefined) {
+    if (beacon.gender !== undefined) {
         console.log(beacon);
         fs.writeFile('web/data.json', JSON.stringify(beacon, null, '    '));
         selectedBeacon = null;
