@@ -14,8 +14,7 @@ Bleacon.on('discover', function(beacon) {
     beacons.push(data);
 
     // Todo log
-    fs.appendFile('log/beaconlog.json', ',');
-    fs.appendFile('log/beaconlog.json', JSON.stringify(data));
+
 
   }
 
@@ -50,6 +49,8 @@ function makeJson(beacon) {
     if (beacon.gender !== undefined) {
         console.log(beacon);
         fs.writeFile('web/data_beacon.json', JSON.stringify(beacon, null, '    '));
+        fs.appendFile('log/beaconlog.json', ',');
+        fs.appendFile('log/beaconlog.json', JSON.stringify(data));
         selectedBeacon = null;
         beacons = [];
     }
