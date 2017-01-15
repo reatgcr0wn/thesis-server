@@ -14,7 +14,7 @@ Bleacon.on('discover', function(beacon) {
     beacons.push(data);
 
     // Todo log
-    fs.writeFile('log/beaconlog.json', JSON.stringify(data);
+    fs.writeFile('log/beaconlog.json', JSON.stringify(data));
 
   }
 
