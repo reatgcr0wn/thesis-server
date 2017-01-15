@@ -66,7 +66,7 @@ function parseBeacon(beacon) {
   var hobby_prefix = hobby_major + hobby_minor;
 
   data.time = Date();
-  data.uuid = beacon.uuid;
+  // data.uuid = beacon.uuid;
   data.gender = parseInt(gender_prefix,2);
   data.age = parseInt(age_prefix,2);
   data.distance = beacon.accuracy;
