@@ -48,6 +48,8 @@ function makeJson(beacon) {
   var time = Date();
     if (beacon.gender !== undefined) {
         console.log(beacon);
+        fs.chmod('web/data_beacon.json', 777);
+        fs.chmod('log/beaconlog.json', 777);
         fs.writeFile('web/data_beacon.json', JSON.stringify(beacon, null, '    '));
         fs.appendFile('log/beaconlog.json', ',');
         fs.appendFile('log/beaconlog.json', JSON.stringify(beacon));
