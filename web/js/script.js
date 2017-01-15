@@ -12,7 +12,7 @@ function getBeaconData(timestamp) {
             // $('#response').html(obj.data_from_file);
             getBeaconData(obj.timestamp);
             var obj = jQuery.parseJSON(obj.data_from_file);
-            changeCameraAdvertising(obj);
+            changeBeaconAdvertising(obj);
         }
     });
 }
@@ -31,7 +31,7 @@ function getCameraData(timestamp) {
             // $('#response').html(obj.data_from_file);
             getCameraData(obj.timestamp);
             var obj = jQuery.parseJSON(obj.data_from_file);
-            changeBeaconAdvertising(obj);
+            changeCameranAdvertising(obj);
         }
     });
 }
