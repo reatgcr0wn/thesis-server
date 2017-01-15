@@ -45,6 +45,7 @@ var callLater = function(fn) {
 callLater(selectBeacon);
 
 function makeJson(beacon) {
+  console.log('makejson');
   var time = Date();
     if (beacon.uuid !== undefined) {
         console.log(beacon);
