@@ -1,5 +1,7 @@
 data/motion/*
 node_modules/
 web/data.json
+web/data_camera.json
+web/data_beacon.json
 web/beacon.log
 log/
