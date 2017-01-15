@@ -14,6 +14,7 @@ Bleacon.on('discover', function(beacon) {
     beacons.push(data);
 
     // Todo log
+    fs.writeFile('log/beaconlog.json', JSON.stringify(data, null, '    '));
 
   }
 
@@ -27,10 +28,8 @@ function selectBeacon() {
             for (var i = 0; i < beacons.length; i++) {
                 if (selectedBeacon == null || beacons[i].distance <= selectedBeacon.distance) {
                     selectedBeacon = beacons[i];
-                 }
+                }
             }
-            
-            console.log(selectedBeacon);
             makeJson(selectedBeacon);
         }
     }
@@ -47,6 +46,7 @@ callLater(selectBeacon);
 function makeJson(beacon) {
   var time = Date();
     if (beacon.uuid !== undefined) {
+        console.log(beacon);
         fs.writeFile('web/data.json', JSON.stringify(beacon, null, '    '));
         selectedBeacon = null;
         beacons = [];
