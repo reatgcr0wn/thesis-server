@@ -42,11 +42,11 @@ $(function() {
 });
 
 function changeCameraAdvertising(data) {
-    console.log(data);
+    console.log('camera',data);
     $("#right").html(JSON.stringify(data));
 }
 
 function changeBeaconAdvertising(data) {
-    console.log(data);
+    console.log('beacon',data);
     $("#left").html(JSON.stringify(data));
 }
