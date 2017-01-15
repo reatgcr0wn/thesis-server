@@ -48,9 +48,9 @@ function makeJson(beacon) {
   var time = Date();
     if (beacon.gender !== undefined) {
         console.log(beacon);
-        fs.writeFile('web/data_beacon.json', JSON.stringify(beacon, null, '    '));
-        fs.appendFile('log/beaconlog.json', ',');
-        fs.appendFile('log/beaconlog.json', JSON.stringify(beacon));
+        fs.writeFileSync('web/data_beacon.json', JSON.stringify(beacon, null, '    '));
+        fs.appendFileSync('log/beaconlog.json', ',');
+        fs.appendFileSync('log/beaconlog.json', JSON.stringify(beacon));
         selectedBeacon = null;
         beacons = [];
     }
