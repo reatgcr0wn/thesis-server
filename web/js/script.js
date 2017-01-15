@@ -17,6 +17,7 @@ function getBeaconData(timestamp) {
     });
 }
 
+console.log('hoge');
 function getCameraData(timestamp) {
     var queryString = {
         'timestamp': timestamp
