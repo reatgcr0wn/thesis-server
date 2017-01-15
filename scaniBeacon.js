@@ -49,7 +49,7 @@ function makeJson(beacon) {
   var time = Date();
     if (beacon.gender !== undefined) {
         console.log(beacon);
-        fs.writeFile('web/data.json', JSON.stringify(beacon, null, '    '));
+        fs.writeFile('web/data_beacon.json', JSON.stringify(beacon, null, '    '));
         selectedBeacon = null;
         beacons = [];
     }
