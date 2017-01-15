@@ -5,7 +5,7 @@ function getBeaconData(timestamp) {
 
     $.ajax({
         type: 'GET',
-        url: 'server.php',
+        url: 'server_beacon.php',
         data: queryString,
         success: function(data) {
             var obj = jQuery.parseJSON(data);
@@ -17,7 +17,6 @@ function getBeaconData(timestamp) {
     });
 }
 
-console.log('hoge');
 function getCameraData(timestamp) {
     var queryString = {
         'timestamp': timestamp
