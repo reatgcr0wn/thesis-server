@@ -1,3 +1,4 @@
 data/motion/*
 node_modules/
 web/data.json
+web/beacon.log
