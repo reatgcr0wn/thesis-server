@@ -31,7 +31,7 @@ function getCameraData(timestamp) {
             // $('#response').html(obj.data_from_file);
             getCameraData(obj.timestamp);
             var obj = jQuery.parseJSON(obj.data_from_file);
-            changeCameranAdvertising(obj);
+            changeCameraAdvertising(obj);
         }
     });
 }
