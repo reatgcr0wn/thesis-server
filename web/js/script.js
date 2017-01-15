@@ -27,6 +27,7 @@ $(function() {
 
 function changeAdvertising(data) {
     console.log(data);
+    $("#advertising").html(data.toString())
     // switch (interest) {
     //     case '1':
     //         slider.unslider('animate:0');
