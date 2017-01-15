@@ -1,0 +1,26 @@
+{
+  "name": "local",
+  "version": "1.0.0",
+  "description": "first",
+  "main": "app.js",
+  "dependencies": {
+    "bleacon": "^0.5.1",
+    "eddystone-beacon": "^1.0.5",
+    "eddystone-beacon-scanner": "^3.0.0",
+    "request": "^2.69.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reatgcr0wn/thesis-server.git"
+  },
+  "author": "mocchi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reatgcr0wn/thesis-server/issues"
+  },
+  "homepage": "https://github.com/reatgcr0wn/thesis-server#readme"
+}
