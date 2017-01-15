@@ -50,7 +50,7 @@ function makeJson(beacon) {
         console.log(beacon);
         fs.writeFile('web/data_beacon.json', JSON.stringify(beacon, null, '    '));
         fs.appendFile('log/beaconlog.json', ',');
-        fs.appendFile('log/beaconlog.json', JSON.stringify(data));
+        fs.appendFile('log/beaconlog.json', JSON.stringify(beacon));
         selectedBeacon = null;
         beacons = [];
     }
