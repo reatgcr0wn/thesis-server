@@ -1,4 +1,4 @@
-#left{
+/*#left{
   float: left;
   width: 50%;
 }
@@ -6,7 +6,7 @@
 #right{
   float: right;
   width: 50%;
-}
+}*/
 
 .age{
   font-size: 60px;

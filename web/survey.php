@@ -1,5 +1,15 @@
 <?php
+
 if (((isset($_POST['beacon_age'])) && ($_POST['beacon_age'] != '')) or ((isset($_POST['beacon_gender'])) && ($_POST['beacon_gender'] != ''))) {         // 名前かEmailがPOSTされたときに、以下を実行する
+
+  if (isset($_POST['select'])) {    //もしPOSTに [select] があれば
+          $select = $_POST['select'];    //POSTのデータを変数$selectに格納
+         if (get_magic_quotes_gpc()) {
+             $select = stripslashes("$select");
+         }        //クォートをエスケープする
+          $select = htmlspecialchars($select);    //HTMLタグを禁止する
+          $select = mb_substr($select, 0, 30, 'UTF-8');        //長いデータを30文字でカット
+  }
 
           if (isset($_POST['beacon_age'])) {    //もしPOSTに [beacon_age] があれば
                   $beacon_age = $_POST['beacon_age'];    //POSTのデータを変数$beacon_ageに格納
@@ -52,7 +62,7 @@ if (((isset($_POST['beacon_age'])) && ($_POST['beacon_age'] != '')) or ((isset($
                $gender = mb_substr($gender, 0, 30, 'UTF-8');        //長いデータを30文字でカット
     }
 
-    $list = array($beacon_gender, $beacon_age, $camera_gender, $camera_age,$gender,$age);
+    $list = array($select,$beacon_gender, $beacon_age, $camera_gender, $camera_age, $gender, $age);
 
     $fp = fopen('surveylog.csv', 'a');
 
@@ -61,4 +71,6 @@ if (((isset($_POST['beacon_age'])) && ($_POST['beacon_age'] != '')) or ((isset($
     fclose($fp);        //ファイルを閉じる
 
     var_dump($list);
+
+    echo 'ありがとうございます！！！！！';
 }
