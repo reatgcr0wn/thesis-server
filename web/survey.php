@@ -52,12 +52,17 @@ if (((isset($_POST['beacon_age'])) && ($_POST['beacon_age'] != '')) or ((isset($
                $gender = mb_substr($gender, 0, 30, 'UTF-8');        //長いデータを30文字でカット
     }
 
-    $write = time().', '.$beacon_gender.', '.$beacon_age.','.$camera_gender.', '.$camera_age.', '.$gender.', '.$age.', '.'\n';    //新しく書き込むデータを <> で区切って整形
-            $log = fopen('surveylog.csv', 'a');     //書き込み用モードでデータを開く
-            flock($log, LOCK_EX);     //ファイルロック開始
-            fputs($log, $write);    //書き込み処理
-            flock($log, LOCK_UN);      //ファイルロック解除
-            fclose($log);         //ファイルを閉じる
+    $list = array (
+    array($beacon_gender, $beacon_age, $camera_gender, $camera_age,$gender,$age)
+    );
+
+    $fp = fopen('web/surveylog.csv', 'a');
+
+    foreach ($list as $fields) {
+        fputcsv($fp, $fields);
+    }
+
+    fclose($fp);        //ファイルを閉じる
 
     echo 'OK';
 }
