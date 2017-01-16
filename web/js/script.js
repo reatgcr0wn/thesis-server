@@ -45,14 +45,14 @@ function changeCameraAdvertising(data) {
     console.log('camera',data);
     $("#right .memo").html(JSON.stringify(data));
     $("#right .gender").html('<img src="img/' +getGenderString(data.gender.value)+ '.png" alt="gender">');
-    $("#right .age").html(data.age.value);
+    $("#right .age").html(data.age.value+'歳');
 }
 
 function changeBeaconAdvertising(data) {
     console.log('beacon',data);
     $("#left .memo").html(JSON.stringify(data));
     $("#left .gender").html('<img src="img/' +getGenderString(data.gender)+ '.png" alt="gender">');
-    $("#left .age").html(data.age);
+    $("#left .age").html(data.age+ '歳');
 }
 
 function getGenderString(gender){
@@ -61,6 +61,6 @@ function getGenderString(gender){
   }else if(gender == 2 || gender == 'Female'){
     return 'female'
   }else {
-    return 'others'
+    return 'other'
   }
 }
