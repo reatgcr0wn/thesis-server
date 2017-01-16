@@ -57,7 +57,7 @@ function changeCameraAdvertising(data) {
     // $("#right .memo").html(JSON.stringify(data));
     if (data.gender) {
       $("#right .gender").html('<img src="img/' +getGenderString(data.gender.value)+ '.png" alt="gender">');
-      $("#right .age").val(data.age.value);
+      $("#right .age").html(data.age.value+'歳');
       //input
       $("#camera_gender").val(getGenderNum(data.gender.value));
       $("#camera_age").val(data.age.value);
