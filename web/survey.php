@@ -58,4 +58,6 @@ if (((isset($_POST['beacon_age'])) && ($_POST['beacon_age'] != '')) or ((isset($
             fputs($log, $write);    //書き込み処理
             flock($log, LOCK_UN);      //ファイルロック解除
             fclose($log);         //ファイルを閉じる
+
+    echo 'OK';
 }
