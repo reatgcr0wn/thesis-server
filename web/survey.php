@@ -60,5 +60,5 @@ if (((isset($_POST['beacon_age'])) && ($_POST['beacon_age'] != '')) or ((isset($
 
     fclose($fp);        //ファイルを閉じる
 
-    echo 'OK';
+    var_dump($list);
 }
