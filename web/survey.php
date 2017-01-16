@@ -62,7 +62,25 @@ if (((isset($_POST['beacon_age'])) && ($_POST['beacon_age'] != '')) or ((isset($
                $gender = mb_substr($gender, 0, 30, 'UTF-8');        //長いデータを30文字でカット
     }
 
-    $list = array($select,$beacon_gender, $beacon_age, $camera_gender, $camera_age, $gender, $age);
+    if (isset($_POST['camera_feel'])) {    //もしPOSTに [camera_feel] があれば
+            $camera_feel = $_POST['camera_feel'];    //POSTのデータを変数$camera_feelに格納
+           if (get_magic_quotes_gpc()) {
+               $camera_feel = stripslashes("$camera_feel");
+           }        //クォートをエスケープする
+            $camera_feel = htmlspecialchars($camera_feel);    //HTMLタグを禁止する
+            $camera_feel = mb_substr($camera_feel, 0, 30, 'UTF-8');        //長いデータを30文字でカット
+    }
+
+    if (isset($_POST['beacon_feel'])) {    //もしPOSTに [beacon_feel] があれば
+            $beacon_feel = $_POST['beacon_feel'];    //POSTのデータを変数$beacon_feelに格納
+           if (get_magic_quotes_gpc()) {
+               $beacon_feel = stripslashes("$beacon_feel");
+           }        //クォートをエスケープする
+            $beacon_feel = htmlspecialchars($beacon_feel);    //HTMLタグを禁止する
+            $beacon_feel = mb_substr($beacon_feel, 0, 30, 'UTF-8');        //長いデータを30文字でカット
+    }
+
+    $list = array($select,$beacon_gender, $beacon_age, $camera_gender, $camera_age, $gender, $age, $camera_feel,$beacon_feel);
 
     $fp = fopen('surveylog.csv', 'a');
 
