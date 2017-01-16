@@ -89,5 +89,5 @@ if (((isset($_POST['beacon_age'])) && ($_POST['beacon_age'] != '')) or ((isset($
     fclose($fp);        //ファイルを閉じる
 
     echo 'ありがとうございます！！！！！';
-    echo '<a href="http://nintaka.local/thesis-project/web/">http://nintaka.local/thesis-project/web/</a>'
+    echo '<a href="http://nintaka.local/thesis-project/web/">http://nintaka.local/thesis-project/web/</a>';
 }
