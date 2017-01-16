@@ -55,6 +55,7 @@ if (((isset($_POST['beacon_age'])) && ($_POST['beacon_age'] != '')) or ((isset($
     $list = array (
     array($beacon_gender, $beacon_age, $camera_gender, $camera_age,$gender,$age)
     );
+    var_dump($list);
 
     $fp = fopen('web/surveylog.csv', 'a');
 
