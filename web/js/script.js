@@ -45,7 +45,11 @@ function changeCameraAdvertising(data) {
     console.log('camera',data);
     $("#right .memo").html(JSON.stringify(data));
     $("#right .gender").html('<img src="img/' +getGenderString(data.gender.value)+ '.png" alt="gender">');
-    $("#right .age").html(data.age.value+'歳');
+    $("#right .age").val(data.age.value);
+    //input
+    $("#beacon_gender").val(getGenderNum(data.gender.value));
+    $("#beacon_age").val(data.age.value);
+    // $("#beacon_hobby").val();
 }
 
 function changeBeaconAdvertising(data) {
@@ -53,6 +57,9 @@ function changeBeaconAdvertising(data) {
     $("#left .memo").html(JSON.stringify(data));
     $("#left .gender").html('<img src="img/' +getGenderString(data.gender)+ '.png" alt="gender">');
     $("#left .age").html(data.age+ '歳');
+
+    $("#camera_gender").val(data.gender);
+    $("#camera_age").val(data.age);
 }
 
 function getGenderString(gender){
@@ -62,5 +69,15 @@ function getGenderString(gender){
     return 'female'
   }else {
     return 'other'
+  }
+}
+
+function getGenderNum(gender){
+  if (gender == 1 || gender == 'Male' ) {
+    return 1;
+  }else if(gender == 2 || gender == 'Female'){
+    return 2;
+  }else {
+    return 3;
   }
 }
