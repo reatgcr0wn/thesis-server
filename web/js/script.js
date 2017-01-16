@@ -53,7 +53,7 @@ function changeBeaconAdvertising(data) {
 }
 
 function changeCameraAdvertising(data) {
-    console.log('camera',data.age.value);
+    console.log('camera',data);
     // $("#right .memo").html(JSON.stringify(data));
     if (data.gender) {
       $("#right .gender").html('<img src="img/' +getGenderString(data.gender.value)+ '.png" alt="gender">');
