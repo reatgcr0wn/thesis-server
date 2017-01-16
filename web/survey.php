@@ -52,7 +52,7 @@ if (((isset($_POST['beacon_age'])) && ($_POST['beacon_age'] != '')) or ((isset($
                $gender = mb_substr($gender, 0, 30, 'UTF-8');        //長いデータを30文字でカット
     }
 
-    $list = array($beacon_gender, $beacon_age, $camera_gender, $camera_age,$gender,$age)
+    $list = array($beacon_gender, $beacon_age, $camera_gender, $camera_age,$gender,$age);
 
     $fp = fopen('web/surveylog.csv', 'a');
 
