@@ -41,16 +41,6 @@ $(function() {
     getCameraData();
 });
 
-function changeCameraAdvertising(data) {
-    console.log('camera',data);
-    $("#right .memo").html(JSON.stringify(data));
-    $("#right .gender").html('<img src="img/' +getGenderString(data.gender.value)+ '.png" alt="gender">');
-    $("#right .age").val(data.age.value);
-    //input
-    $("#beacon_gender").val(getGenderNum(data.gender.value));
-    $("#beacon_age").val(data.age.value);
-    // $("#beacon_hobby").val();
-}
 
 function changeBeaconAdvertising(data) {
     console.log('beacon',data);
@@ -58,8 +48,19 @@ function changeBeaconAdvertising(data) {
     $("#left .gender").html('<img src="img/' +getGenderString(data.gender)+ '.png" alt="gender">');
     $("#left .age").html(data.age+ '歳');
 
-    $("#camera_gender").val(data.gender);
-    $("#camera_age").val(data.age);
+    $("#beacon_gender").val(data.gender);
+    $("#beacon_age").val(data.age);
+}
+
+function changeCameraAdvertising(data) {
+    console.log('camera',data);
+    $("#right .memo").html(JSON.stringify(data));
+    $("#right .gender").html('<img src="img/' +getGenderString(data.gender.value)+ '.png" alt="gender">');
+    $("#right .age").val(data.age.value);
+    //input
+    $("#camera_gender").val(getGenderNum(data.gender.value));
+    $("#camera_age").val(data.age.value);
+    // $("#beacon_hobby").val();
 }
 
 function getGenderString(gender){
