@@ -55,11 +55,14 @@ function changeBeaconAdvertising(data) {
 function changeCameraAdvertising(data) {
     console.log('camera',data);
     // $("#right .memo").html(JSON.stringify(data));
-    $("#right .gender").html('<img src="img/' +getGenderString(data.gender.value)+ '.png" alt="gender">');
-    $("#right .age").val(data.age.value);
-    //input
-    $("#camera_gender").val(getGenderNum(data.gender.value));
-    $("#camera_age").val(data.age.value);
+    if (data.gender) {
+      $("#right .gender").html('<img src="img/' +getGenderString(data.gender.value)+ '.png" alt="gender">');
+      $("#right .age").val(data.age.value);
+      //input
+      $("#camera_gender").val(getGenderNum(data.gender.value));
+      $("#camera_age").val(data.age.value);
+    }
+
     // $("#beacon_hobby").val();
 }
 
