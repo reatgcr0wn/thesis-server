@@ -55,10 +55,10 @@ function changeBeaconAdvertising(data) {
     $("#left .age").html(data.age);
 }
 
-function getGenderString(num){
-  if (num == 1) {
+function getGenderString(gender){
+  if (gender == 1 || gender == 'Male' ) {
     return 'male'
-  }else if(num == 2){
+  }else if(gender == 2 || gender == 'Female'){
     return 'female'
   }else {
     return 'others'
