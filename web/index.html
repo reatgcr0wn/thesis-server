@@ -11,14 +11,6 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-2" style="background-color:red;">Red</div>
-            <div class="col-sm-8" style="background-color:blue;">Blue</div>
-            <div class="col-sm-2" style="background-color:yellow;">Yellow</div>
-        </div>
-    </div>
-
 
     <form action="survey.php" method="post" enctype="multipart/form-data">
         <div id="advertising" class="container-fluid">
@@ -49,17 +41,17 @@
         </div>
         <div id="form" class="container-fluid">
             <div class="form row">
-                <p>上の画像のどちらがより自分に近いですか？</p>
+                <h3>上の画像のどちらがより自分に近いですか？</h3>
                 <input type="radio" name="select" value="1">左</input>
                 <input type="radio" name="select" value="2">右</input>
                 <input type="radio" name="select" value="3">どちらでもない</input>
 
-                <p>実際の性別</p>
+                <h3>実際の性別</h3>
                 <input type="radio" name="gender" value="1">男性</input>
                 <input type="radio" name="gender" value="2">女性</input>
                 <input type="radio" name="gender" value="3">その他</input>
 
-                <p>実際の年齢</p>
+                <h3>実際の年齢</h3>
                 <input type="number" name="age">
 
                 <button type="submit" name="submit">送信</button>
