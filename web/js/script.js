@@ -43,10 +43,24 @@ $(function() {
 
 function changeCameraAdvertising(data) {
     console.log('camera',data);
-    $("#right").html(JSON.stringify(data));
+    $("#right .memo").html(JSON.stringify(data));
+    $("#right .gender").html('<img src="img/' +getGenderString(data.gender.value)+ '.png" alt="gender">');
+    $("#right .age").html(data.age.value);
 }
 
 function changeBeaconAdvertising(data) {
     console.log('beacon',data);
-    $("#left").html(JSON.stringify(data));
+    $("#left .memo").html(JSON.stringify(data));
+    $("#left .gender").html('<img src="img/' +getGenderString(data.gender)+ '.png" alt="gender">'));
+    $("#left .age").html(data.age);
+}
+
+function getGenderString(num){
+  if (num == 1) {
+    return 'male'
+  }else if(num == 2){
+    return 'female'
+  }else {
+    return 'others'
+  }
 }
