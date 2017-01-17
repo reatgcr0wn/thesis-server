@@ -1,3 +1,5 @@
+var show = false;
+
 function getBeaconData(timestamp) {
     var queryString = {
         'timestamp': timestamp
@@ -45,9 +47,11 @@ $(function() {
 function changeBeaconAdvertising(data) {
     console.log('beacon',data);
     // $("#left .memo").html(JSON.stringify(data));
-    $("#left .gender").html('<img src="img/' +getGenderString(data.gender)+ '.png" alt="gender">');
-    $("#left .age").html(data.age+ '歳');
-
+    if (show) {
+      $("#left .gender").html('<img src="img/' +getGenderString(data.gender)+ '.png" alt="gender">');
+      $("#left .age").html(data.age+ '歳');
+    }
+    
     $("#beacon_gender").val(data.gender);
     $("#beacon_age").val(data.age);
 }
@@ -56,6 +60,7 @@ function changeCameraAdvertising(data) {
     console.log('camera',data);
     // $("#right .memo").html(JSON.stringify(data));
     if (data.gender) {
+      show = true;
       $("#right .gender").html('<img src="img/' +getGenderString(data.gender.value)+ '.png" alt="gender">');
       $("#right .age").html(data.age.value+'歳');
       //input
